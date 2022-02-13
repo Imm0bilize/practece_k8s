@@ -15,7 +15,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	log.Print("Start service")
+	log.Print("Start service.yaml")
 	http.HandleFunc("/", handler)
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
