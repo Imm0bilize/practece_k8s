@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-deployment
+  name: goapp-deployment
+  namespace: lesson15
   labels:
-    app: go-web
+    app: goapp
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: goapp
   template:
-      metadata:
-        labels:
-          app: goapp
-      spec:
-        containers:
-          - name: goapp
-            image: imm0bilize/practice-k8s:latest
-            ports:
-              - containerPort: 8080
+    metadata:
+      labels:
+        app: goapp
+    spec:
+      containers:
+        - name: web
+          image: imm0bilize/practice-k8s:latest
+          ports:
+            - containerPort: 8080
